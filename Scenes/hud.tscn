@@ -1,0 +1,84 @@
+[gd_scene load_steps=9 format=3 uid="uid://db2v5nxvbcf1u"]
+
+[ext_resource type="Script" path="res://Scripts/hud.gd" id="1_8fbiy"]
+[ext_resource type="Texture2D" uid="uid://denny813fnanw" path="res://Assets/nine_path_3.png" id="2_kvi7d"]
+[ext_resource type="FontFile" uid="uid://bgoq1ecdix2t2" path="res://Assets/Fonts/NormalFont.ttf" id="3_sd8n4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q0kry"]
+texture = ExtResource("2_kvi7d")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_fds55"]
+font = ExtResource("3_sd8n4")
+font_size = 8
+font_color = Color(0.607843, 0.317647, 0.235294, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_agdv3"]
+font = ExtResource("3_sd8n4")
+font_size = 8
+font_color = Color(0.607843, 0.317647, 0.235294, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_nml02"]
+base_font = ExtResource("3_sd8n4")
+spacing_space = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_4wglr"]
+font = SubResource("FontVariation_nml02")
+font_size = 8
+font_color = Color(0.607843, 0.317647, 0.235294, 1)
+
+[node name="HUD" type="CanvasLayer" groups=["HUD"]]
+script = ExtResource("1_8fbiy")
+
+[node name="Stats" type="PanelContainer" parent="."]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 62.0
+offset_bottom = 42.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_q0kry")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Stats"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label1" type="Label" parent="Stats/VBoxContainer"]
+layout_mode = 2
+text = "HP: "
+label_settings = SubResource("LabelSettings_fds55")
+uppercase = true
+
+[node name="Label2" type="Label" parent="Stats/VBoxContainer"]
+layout_mode = 2
+text = "KEYS: "
+label_settings = SubResource("LabelSettings_agdv3")
+uppercase = true
+
+[node name="Dialogue" type="PanelContainer" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -37.5
+offset_top = -39.0
+offset_right = 37.5
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_q0kry")
+
+[node name="DialogueLabel" type="Label" parent="Dialogue"]
+layout_mode = 2
+text = "TEST TEXT..."
+label_settings = SubResource("LabelSettings_4wglr")
+uppercase = true
+
+[node name="Timer" type="Timer" parent="Dialogue"]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="Dialogue/Timer" to="." method="_on_timer_timeout"]

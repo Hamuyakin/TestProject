@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dta7jgajlg45c"]
+
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_dvyml"]
+[ext_resource type="PackedScene" uid="uid://db2v5nxvbcf1u" path="res://Scenes/hud.tscn" id="2_datel"]
+[ext_resource type="PackedScene" uid="uid://bxxjlmxr0siaf" path="res://Scenes/player.tscn" id="3_5c2pl"]
+
+[node name="Main" type="Node2D" groups=["main"]]
+y_sort_enabled = true
+script = ExtResource("1_dvyml")
+
+[node name="HUD" parent="." instance=ExtResource("2_datel")]
+unique_name_in_owner = true
+
+[node name="Player" parent="." instance=ExtResource("3_5c2pl")]
+unique_name_in_owner = true
+position = Vector2(120, 120)
+
+[connection signal="item_gained" from="Player" to="." method="_on_player_item_gained"]
