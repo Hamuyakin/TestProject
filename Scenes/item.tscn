@@ -1,9 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://xu840xpcp3f1"]
+[gd_scene load_steps=11 format=3 uid="uid://xu840xpcp3f1"]
 
 [ext_resource type="Script" path="res://Scripts/item.gd" id="1_llsce"]
 [ext_resource type="Texture2D" uid="uid://ewdjr6a6lmwh" path="res://Assets/Items/Key.png" id="2_42jwv"]
 [ext_resource type="Texture2D" uid="uid://ceeeisq4txexm" path="res://Assets/Items/vegetable&fruit.png" id="3_gymml"]
-[ext_resource type="Texture2D" uid="uid://cho0x3wriug88" path="res://Assets/Items/Alarm.png" id="4_m7knr"]
+[ext_resource type="Texture2D" uid="uid://cyk8fc7enrjqp" path="res://Assets/Items/Alarm.png" id="4_m7knr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_guiv7"]
 atlas = ExtResource("3_gymml")
@@ -20,10 +20,6 @@ region = Rect2(22, 89, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_fmyej"]
 atlas = ExtResource("3_gymml")
 region = Rect2(6, 73, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_afeh5"]
-atlas = ExtResource("4_m7knr")
-region = Rect2(0, 0, 9, 11)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_coriv"]
 animations = [{
@@ -44,7 +40,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_fmyej")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_afeh5")
+"texture": ExtResource("4_m7knr")
 }],
 "loop": true,
 "name": &"default",
